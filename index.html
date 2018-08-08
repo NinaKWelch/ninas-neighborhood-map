@@ -14,9 +14,9 @@
     </div>
 
     <div class="filter-options">
-      <select>
+      <select id="select-category" name="categories" onChange="updatePlaces()">
         <option value="all">All</option>
-        <option value="food">Food</option>
+        option value="food">Food</option>
         <option value="fun">Fun</option>
         <option value="garden">Garden</option>
         <option value="museum">Museum</option>
@@ -26,7 +26,7 @@
 
     <div class="main-container">
       <div>
-        <ul>
+        <ul id="places-list">
           <li>Holland Park Cafe</li>
           <li>Holland Park Playground</li>
           <li><a href="location-info.html">Kyoto Garden</a></li>
@@ -47,8 +47,7 @@
     <script src="js/scripts.js"></script>
 
     <!-- Google Maps API-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATBPRDEi83la0PZpWlPurHNkmeC8bZNyk&callback=initMap"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4&libraries=places&callback=initMap" async defer></script>
 
   </body>
 </html>

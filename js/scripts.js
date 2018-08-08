@@ -1,3 +1,8 @@
+//Google Maps
+
+var map;
+var markers = [];
+
 function initMap() {
   // Create a new map - only center and zoom are required
   map = new google.maps.Map(document.getElementById('map'), {
