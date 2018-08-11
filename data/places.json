@@ -2,7 +2,7 @@
   "places": [
     {
     "id": 1,
-    "title": "Holland Park Cafe",
+    "name": "Holland Park Cafe",
     "category": "Food",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -14,7 +14,7 @@
     },
     {
     "id": 2,
-    "title": "Holland Park Playground",
+    "name": "Holland Park Playground",
     "category": "Fun",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -26,7 +26,7 @@
     },
     {
     "id": 3,
-    "title": "Kyoto Garden",
+    "name": "Kyoto Garden",
     "category": "Garden",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -38,7 +38,7 @@
     },
     {
     "id": 4,
-    "title": "Lord Holland's Pond",
+    "name": "Lord Holland's Pond",
     "category": "Garden",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -50,7 +50,7 @@
     },
     {
     "id": 5,
-    "title": "Leighton House Museum",
+    "name": "Leighton House",
     "category": "Museum",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -62,7 +62,7 @@
     },
     {
     "id": 6,
-    "title": "The Belvedere",
+    "name": "The Belvedere",
     "category": "Food",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -74,7 +74,7 @@
     },
     {
     "id": 7,
-    "title": "The Design Museum'",
+    "name": "The Design Museum'",
     "category": "Museum",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -86,7 +86,7 @@
     },
     {
     "id": 8,
-    "title": "The Orangery",
+    "name": "The Orangery",
     "category": "Music",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -98,7 +98,7 @@
     },
     {
     "id": 9,
-    "title": "Tortoises with Triangle",
+    "name": "Tortoises with Triangle",
     "category": "Fun",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
@@ -110,7 +110,7 @@
     },
     {
     "id": 10,
-    "title": "Opera Holland Park",
+    "name": "Opera Holland Park",
     "category": "Music",
     "img": "img_ph.jpg",
     "alt": "Placeholder image",
