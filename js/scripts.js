@@ -104,7 +104,7 @@ function initMap() {
     // Create marker array
     markers.push(marker);
 
-    // Extend teh boundaries of the map for each marker
+    // Extend the boundaries of the map for each marker
     bounds.extend(marker.position);
 
     // Event listener for markers
@@ -129,3 +129,4 @@ function initMap() {
     map.fitBounds(bounds);
   }
 }
+
