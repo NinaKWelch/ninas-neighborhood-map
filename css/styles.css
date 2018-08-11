@@ -12,6 +12,11 @@ footer,
   background: #ccc;
 }
 
+ul {
+  margin: 0;
+  list-style: none;
+}
+
 img {
   width: 100%;
 }
