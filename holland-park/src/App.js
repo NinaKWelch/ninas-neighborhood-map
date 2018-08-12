@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import MapContainer from './MapContainer'
-import MapFilter from './MapFilter'
+import MapContainer from './MapContainer';
+import MapFilterFS from './MapFilterFS';
+
+const foursquare = require('react-foursquare')({
+  clientID: 'LEZHUWQW2RE05TR3ZEXPYMXQIGRJLVDA4DELG0RJMZXMMQOP',
+  clientSecret: 'ORHDBJZPFD2U3KQJVRJBVFMC0Z1VZ0RD1FFA2SXJ4YDOYVM5'
+});
+
 
 class App extends Component {
 	state = {
@@ -15,11 +21,30 @@ class App extends Component {
 		    {name: 'The Orangery', id:'8', category: 'music', location: {lat: 51.501679, lng: -0.204083}},
 		    {name: 'Tortoises with Triangle', id:'9', category: 'fun', location: {lat: 51.503729, lng: -0.207339}},
 		    {name: 'Opera Holland Park', id:'10', category: 'music', location: {lat: 51.502433, lng: -0.202219}}
-		]
+		],
+		items: []
 	}
 
+	componentDidMount() {
+		this.updatePlaces();
+    }
+
+    updatePlaces = (category) => {
+    	let params = {
+    		"ll": "51.501757,-0.203186",
+ 			"radius": 350,
+			"categoryId": category
+    	};
+
+       	foursquare.venues.getVenues(params)
+  	 	.then(res => {
+      		this.setState({ items: res.response.venues });
+    	});
+    }
+
 	render() {
-	  	const { places } = this.state
+
+	  	const { places, items } = this.state
 
 	    return (
 	        <div className="App">
@@ -31,8 +56,8 @@ class App extends Component {
 		      	    <MapContainer/>
 		      	</section>
 
-		      	<main>
-				    <MapFilter places={places}/>
+		        <main>
+					<MapFilterFS items={items} updatePlaces={this.updatePlaces}/>
 		        </main>
 
 		        <footer>

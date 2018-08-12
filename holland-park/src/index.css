@@ -25,6 +25,15 @@ ul {
 	list-style: none;
 }
 
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+
+}
+
 .app-name {
 	font-size: 1.3em;
 	padding: 0 1em;
@@ -59,6 +68,19 @@ ul {
 	padding: 0.3em;
 }
 
+.places-list-img {
+	background: #ccc;
+}
+
+.places-list-info {
+	margin-left: 1em;
+}
+
+.place-name {
+	font-size: 1em;
+	padding: 0.3em 0;
+}
+
 .place-category {
-	font-weight: normal;
+	font-size: 0.85em;
 }
