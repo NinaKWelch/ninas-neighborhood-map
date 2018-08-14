@@ -17,12 +17,12 @@ class MapFilterFS extends React.Component {
 	render() {
 
 		//Categories
-		const all = "4bf58dd8d48988d1f2931735,4d4b7105d754a06374d81259,4f4528bc4b90abdf24c9de85,4bf58dd8d48988d15a941735,4bf58dd8d48988d181941735";
-		const art = "4bf58dd8d48988d1f2931735";
-		const sport = "4f4528bc4b90abdf24c9de85";
+		const all = "4bf58dd8d48988d136941735,4bf58dd8d48988d1e2931735,4e39a956bd410d7aed40cbc3,58daa1558bbb0b01f18ec203,4e4c9077bd41f78e849722f9,4bf58dd8d48988d1e7941735,4bf58dd8d48988d15a941735,4bf58dd8d48988d181941735,4bf58dd8d48988d1c4941735,4bf58dd8d48988d16d941735";
+		const art = "4bf58dd8d48988d136941735,4bf58dd8d48988d1e2931735";
+		const sport = "4e39a956bd410d7aed40cbc3,58daa1558bbb0b01f18ec203,4e4c9077bd41f78e849722f9,4bf58dd8d48988d1e7941735";
 		const garden = "4bf58dd8d48988d15a941735";
 		const museum = "4bf58dd8d48988d181941735";
-		const food = "4d4b7105d754a06374d81259";
+		const food = "4bf58dd8d48988d1c4941735,4bf58dd8d48988d16d941735";
 
 	  	const { category } = this.state
 	  	const { items } = this.props
