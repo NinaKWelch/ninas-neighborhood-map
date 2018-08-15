@@ -7,6 +7,7 @@ const foursquare = require('react-foursquare')({
   clientSecret: 'ORHDBJZPFD2U3KQJVRJBVFMC0Z1VZ0RD1FFA2SXJ4YDOYVM5'
 });
 
+const allCategories = "4bf58dd8d48988d136941735,4bf58dd8d48988d1e2931735,4e39a956bd410d7aed40cbc3,58daa1558bbb0b01f18ec203,4e4c9077bd41f78e849722f9,4bf58dd8d48988d1e7941735,4bf58dd8d48988d15a941735,4bf58dd8d48988d181941735,4bf58dd8d48988d1c4941735,4bf58dd8d48988d16d941735";
 
 class App extends Component {
 	state = {
@@ -14,7 +15,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.updatePlaces();
+		this.updatePlaces(allCategories);
     }
 
     updatePlaces = (category) => {
@@ -41,7 +42,7 @@ class App extends Component {
 	        	</header>
 
         		<section>
-	      		    <MapContainer items={items} />
+	      		    <MapContainer items={items}/>
 	      	    </section>
 
 		        <main>

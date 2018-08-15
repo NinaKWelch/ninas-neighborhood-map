@@ -42,7 +42,7 @@ class MapFilterFS extends React.Component {
 		    			<option value={food}>Cafes & Restaurants</option>
 		    			<option value={garden}>Gardens</option>
 		    			<option value={museum}>Museums</option>
-		    			<option value={sport}>Sports</option>
+		    			<option value={sport}>Fun & Sports</option>
 		    		</select>
 	    		</div>
 

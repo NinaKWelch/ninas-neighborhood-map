@@ -121,7 +121,7 @@ function initMap() {
       infoWindow.marker = marker;
       infoWindow.setContent('<div>' + marker.title + '</div>');
       infoWindow.open(map, marker);
-      // Clear marker property in window is closed
+      // Clear marker property if window is closed
       infoWindow.addListener('closeclick', function() {
         infoWindow.setMarker(null);
       });
