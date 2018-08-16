@@ -11,12 +11,17 @@ const allCategories = "4bf58dd8d48988d136941735,4bf58dd8d48988d1e2931735,4e39a95
 
 class App extends Component {
 	state = {
-		items: []
+		items: [],
+		activeItem: []
 	}
 
 	componentDidMount() {
 		this.updatePlaces(allCategories);
     }
+
+	componentWillReceiveProps() {
+		this.showInfoOnMap();
+	}
 
     updatePlaces = (category) => {
     	let params = {
@@ -32,13 +37,19 @@ class App extends Component {
     }
 
    	showInfoOnMap = (query) => {
-   		//const activeQuery = query
-   		console.log('test: ' + query)
-   }
+		let params = {
+			"query": query
+		};
+
+       	foursquare.venues.getVenues(params)
+  	 	.then(res => {
+      		this.setState({ activeItem: res.response.venues });
+    	});
+   	}
 
 	render() {
 
-	  	const { items } = this.state
+	  	const { items, activeItem } = this.state
 
 	    return (
 	        <div className="App">
@@ -47,7 +58,7 @@ class App extends Component {
 	        	</header>
 
         		<section>
-	      		    <MapContainer items={items}/>
+	      		    <MapContainer items={items} activeItem={activeItem}/>
 	      	    </section>
 
 		        <main>

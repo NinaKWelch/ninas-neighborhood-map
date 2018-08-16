@@ -48,7 +48,7 @@ class MapContainer extends React.Component {
 		    						//Animation={google.maps.Animation.DROP}
 		    						position={{lat: item.location.lat, lng: item.location.lng}}
 		    						icon={this.state.iconUrl}
-		    						/>
+		    				/>
 		    			))}
 
 		    			<InfoWindow marker={activeMarker}
