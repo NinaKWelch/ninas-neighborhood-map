@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class MapContainer extends React.Component {
 	state = {
 		showingInfoWindow: false,
 		activeMarker: {},
-		selectedPlace: {}
+		selectedPlace: {},
+		iconUrl: 'http://maps.google.com/mapfiles/ms/micons/blue-dot.png'
 	}
 
 	componentWillReceiveProps() {
@@ -15,7 +16,7 @@ class MapContainer extends React.Component {
 	}
 
 	onMarkerClick = (props, marker, e) => {
-	    this.setState({
+		this.setState({
 	      	selectedPlace: props,
 	      	activeMarker: marker,
 	      	showingInfoWindow: true
@@ -29,6 +30,7 @@ class MapContainer extends React.Component {
 		}
 
 		const { items, google } = this.props
+		const { activeMarker, showingInfoWindow, selectedPlace } = this.state
 
 	    return (
 	    	<div className="map-container">
@@ -43,14 +45,17 @@ class MapContainer extends React.Component {
 		    						onClick={this.onMarkerClick}
 		    						name={item.name}
 		    						category={item.categories[0].name}
-		    						position={{lat: item.location.lat, lng: item.location.lng}}/>
+		    						//Animation={google.maps.Animation.DROP}
+		    						position={{lat: item.location.lat, lng: item.location.lng}}
+		    						icon={this.state.iconUrl}
+		    						/>
 		    			))}
 
-		    			<InfoWindow marker={this.state.activeMarker}
-				     		        visible={this.state.showingInfoWindow}>
+		    			<InfoWindow marker={activeMarker}
+				     		        visible={showingInfoWindow}>
 				     		<div>
-				     			<h4>{this.state.selectedPlace.name}</h4>
-				     			<p>{this.state.selectedPlace.category}</p>
+				     			<h4>{selectedPlace.name}</h4>
+				     			<p>{selectedPlace.category}</p>
 				     		</div>
 				    	</InfoWindow>
 					</Map>

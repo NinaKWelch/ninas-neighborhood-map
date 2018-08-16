@@ -31,9 +31,14 @@ class App extends Component {
     	});
     }
 
+   	showInfoOnMap = (query) => {
+   		//const activeQuery = query
+   		console.log('test: ' + query)
+   }
+
 	render() {
 
-	  	const { places, items } = this.state
+	  	const { items } = this.state
 
 	    return (
 	        <div className="App">
@@ -46,7 +51,7 @@ class App extends Component {
 	      	    </section>
 
 		        <main>
-					<MapFilterFS items={items} updatePlaces={this.updatePlaces}/>
+					<MapFilterFS items={items} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>
 		        </main>
 
 		        <footer>

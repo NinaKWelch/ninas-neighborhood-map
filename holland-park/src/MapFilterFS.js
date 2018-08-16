@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PlaceFS from './PlaceFS';
 
 class MapFilterFS extends React.Component {
@@ -25,7 +25,7 @@ class MapFilterFS extends React.Component {
 		const food = "4bf58dd8d48988d1c4941735,4bf58dd8d48988d16d941735";
 
 	  	const { category } = this.state
-	  	const { items } = this.props
+	  	const { items, showInfoOnMap } = this.props
 
 	    return (
 	    	<div>
@@ -48,7 +48,7 @@ class MapFilterFS extends React.Component {
 
 				<div className="places-list">
 		    		<ul>
-						{items.map(item => (<PlaceFS item={item} key={item.id}/>))}
+						{items.map(item => (<PlaceFS item={item} key={item.id} showInfoOnMap={showInfoOnMap}/>))}
 		        	</ul>
 	        	</div>
 	    	</div>

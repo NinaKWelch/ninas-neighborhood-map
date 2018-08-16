@@ -70,6 +70,7 @@ ul {
 	margin-bottom: 0.5em;
 	background: #fff;
 	padding: 0.3em;
+	cursor: pointer;
 }
 
 .places-list-img {
