@@ -5,7 +5,6 @@ class PlaceFS extends React.Component {
 	showInfo = (event) => {
 		event.target = this.props.item.name
 		this.props.showInfoOnMap(event.target)
-        console.log('test: ' + event.target);
 	}
 
 	 render() {
@@ -28,7 +27,6 @@ class PlaceFS extends React.Component {
 					<h3 className="place-name">{item.name}</h3>
 					<p className="place-category">{item.categories[0].name}</p>
 				</div>
-
 			</li>
 	    );
 	 }

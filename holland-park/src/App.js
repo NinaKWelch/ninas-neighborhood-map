@@ -7,7 +7,8 @@ const foursquare = require('react-foursquare')({
   clientSecret: 'ORHDBJZPFD2U3KQJVRJBVFMC0Z1VZ0RD1FFA2SXJ4YDOYVM5'
 });
 
-const allCategories = "4bf58dd8d48988d136941735,4bf58dd8d48988d1e2931735,4e39a956bd410d7aed40cbc3,58daa1558bbb0b01f18ec203,4e4c9077bd41f78e849722f9,4bf58dd8d48988d1e7941735,4bf58dd8d48988d15a941735,4bf58dd8d48988d181941735,4bf58dd8d48988d1c4941735,4bf58dd8d48988d16d941735";
+const allCategories = "4bf58dd8d48988d136941735,4bf58dd8d48988d1e2931735,58daa1558bbb0b01f18ec203,4e39a956bd410d7aed40cbc3,4bf58dd8d48988d1e7941735,4bf58dd8d48988d15a941735,4bf58dd8d48988d181941735,4bf58dd8d48988d1c4941735,4bf58dd8d48988d16d941735";
+const hollandPark = '51.501757,-0.203186'
 
 class App extends Component {
 	state = {
@@ -19,13 +20,15 @@ class App extends Component {
 		this.updatePlaces(allCategories);
     }
 
-	componentWillReceiveProps() {
-		this.showInfoOnMap();
+    componentDidUpdate(prevProps, prevState) {
+	    if (prevState.items !== this.state.items) {
+	        this.setState({ activeItem: [] });
+	    }
 	}
 
     updatePlaces = (category) => {
     	let params = {
-    		"ll": "51.501757,-0.203186",
+    		"ll": hollandPark,
  			"radius": 310,
 			"categoryId": category
     	};
@@ -38,7 +41,9 @@ class App extends Component {
 
    	showInfoOnMap = (query) => {
 		let params = {
-			"query": query
+			"ll": hollandPark,
+			"query": query,
+			"limit": 1
 		};
 
        	foursquare.venues.getVenues(params)
@@ -58,7 +63,7 @@ class App extends Component {
 	        	</header>
 
         		<section>
-	      		    <MapContainer items={items} activeItem={activeItem}/>
+	      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
 	      	    </section>
 
 		        <main>

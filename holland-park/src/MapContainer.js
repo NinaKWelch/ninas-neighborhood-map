@@ -5,22 +5,25 @@ class MapContainer extends React.Component {
 	state = {
 		showingInfoWindow: false,
 		activeMarker: {},
-		selectedPlace: {},
-		iconUrl: 'http://maps.google.com/mapfiles/ms/micons/blue-dot.png'
+		selectedPlace: {}
 	}
 
-	componentWillReceiveProps() {
+	/*componentWillReceiveProps() {
 		this.setState({
 	      	showingInfoWindow: false
 	    });
-	}
+	}*/
 
-	onMarkerClick = (props, marker, e) => {
-		this.setState({
+	onMarkerClick = (props, marker, event) => {
+		event.target = props.name;
+	    this.props.showInfoOnMap(event.target);
+
+		/*this.setState({
 	      	selectedPlace: props,
 	      	activeMarker: marker,
 	      	showingInfoWindow: true
-	    });
+	    });*/
+	    //console.log('test: ' + event.target);
 	}
 
 	render() {
@@ -29,7 +32,7 @@ class MapContainer extends React.Component {
   			height: 350
 		}
 
-		const { items, google } = this.props
+		const { items, activeItem, google } = this.props
 		const { activeMarker, showingInfoWindow, selectedPlace } = this.state
 
 	    return (
@@ -47,7 +50,17 @@ class MapContainer extends React.Component {
 		    						category={item.categories[0].name}
 		    						//Animation={google.maps.Animation.DROP}
 		    						position={{lat: item.location.lat, lng: item.location.lng}}
-		    						icon={this.state.iconUrl}
+		    						icon={'http://maps.google.com/mapfiles/ms/micons/blue-dot.png'}
+		    				/>
+		    			))}
+
+		    			{activeItem.map(item => (
+		    				<Marker key={item.id}
+		    						//onClick={this.onActiveMarkerClick}
+		    						name={item.name}
+		    						category={item.categories[0].name}
+		    						position={{lat: item.location.lat, lng: item.location.lng}}
+		    						icon={'http://maps.google.com/mapfiles/ms/micons/pink-dot.png'}
 		    				/>
 		    			))}
 
