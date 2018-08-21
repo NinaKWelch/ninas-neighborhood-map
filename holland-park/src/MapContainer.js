@@ -3,7 +3,9 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class MapContainer extends React.Component {
 
-	onMarkerClick = (props, marker, event) => {
+	//when marker is clicked
+	//use it's id to fetch venue information
+	onMarkerClick = (props, event) => {
 		event.target = props.id;
 	    this.props.showInfoOnMap(event.target);
 	}
@@ -14,7 +16,7 @@ class MapContainer extends React.Component {
 
 	    return (
 	    	<div className="map-container">
-	    		<div id="map">
+	    		<div id="map" role="application">
 					<Map google={google}
 		    		     zoom={15}
 		    		     initialCenter={{lat: 51.501757,lng: -0.203186}}>

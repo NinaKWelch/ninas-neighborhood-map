@@ -86,9 +86,9 @@ class App extends Component {
 	        	</header>
 
 	        	<div className="flex-container">
-	        		<section>
+	        		<aside>
 		      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
-		      	    </section>
+		      	    </aside>
 
 			        <main>
 						<MapFilterFS items={items} activeItem={activeItem} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>

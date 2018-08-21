@@ -3,6 +3,8 @@ import ActivePlaceFS from './ActivePlaceFS';
 
 class PlaceFS extends React.Component {
 
+	//when list item is clicked
+	//use it's id to fetch venue information
 	showInfo = (event) => {
 		event.target = this.props.item.id
 		this.props.showInfoOnMap(event.target);
