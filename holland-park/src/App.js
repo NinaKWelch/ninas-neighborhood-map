@@ -13,44 +13,67 @@ const hollandPark = '51.501757,-0.203186'
 class App extends Component {
 	state = {
 		items: [],
-		activeItem: []
+		activeItem: {}
 	}
 
 	componentDidMount() {
 		this.updatePlaces(allCategories);
-    }
+  	}
 
-    componentDidUpdate(prevProps, prevState) {
-	    if (prevState.items !== this.state.items) {
-	        this.setState({ activeItem: [] });
-	    }
+  	componentDidUpdate(prevProps, prevState) {
+    	if (prevState.items !== this.state.items) {
+        	this.setState({ activeItem: {} });
+    	}
 	}
 
-    updatePlaces = (category) => {
-    	let params = {
+  	updatePlaces = (category) => {
+  		let params = {
     		"ll": hollandPark,
  			"radius": 310,
 			"categoryId": category
-    	};
+  		};
 
-       	foursquare.venues.getVenues(params)
-  	 	.then(res => {
-      		this.setState({ items: res.response.venues });
-    	});
-    }
+    	foursquare.venues.getVenues(params)
+    	.then(res => {
+    		this.setState({ items: res.response.venues });
+  		});
 
-   	showInfoOnMap = (query) => {
+  		this.closeAllWindows();
+  	}
+
+ 	showInfoOnMap = (queryId) => {
 		let params = {
-			"ll": hollandPark,
-			"query": query,
-			"limit": 1
+			"venue_id": queryId
 		};
 
-       	foursquare.venues.getVenues(params)
-  	 	.then(res => {
-      		this.setState({ activeItem: res.response.venues });
-    	});
-   	}
+    	foursquare.venues.getVenue(params)
+    	.then(res => {
+    		this.setState({ activeItem: res.response.venue });
+  		});
+
+	 	this.closeAllWindows();
+  		this.showInfoWIndow(queryId);
+ 	}
+
+ 	closeAllWindows = () => {
+ 		for (var i = 0; i < this.state.items.length; i++) {
+ 			let item = this.state.items[i];
+
+		const closeWindow = document.getElementById(item.id);
+	 		closeWindow.firstChild.setAttribute('style', 'display: none;');
+	 	}
+ 	}
+
+ 	showInfoWIndow = (queryId) => {
+ 		for (var i = 0; i < this.state.items.length; i++) {
+ 			let item = this.state.items[i];
+
+ 			if (item.id === queryId) {
+ 				const window = document.getElementById(queryId);
+ 				window.firstChild.setAttribute('style', 'display: initial; transition: display 15s ease-out')
+ 			}
+ 		}
+ 	}
 
 	render() {
 
@@ -67,7 +90,7 @@ class App extends Component {
 	      	    </section>
 
 		        <main>
-					<MapFilterFS items={items} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>
+					<MapFilterFS items={items} activeItem={activeItem} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>
 		        </main>
 
 		        <footer>

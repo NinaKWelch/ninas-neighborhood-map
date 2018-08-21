@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,13 +7,18 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 16px;
 }
 
 header,
 footer {
 	padding: 1em 0;
+	font-size: 0.8em;
+}
+
+header {
+	border-bottom: 1px solid #ccc;
 }
 
 footer {
@@ -39,18 +46,24 @@ ul {
 }
 
 .app-name {
-	font-size: 1.3em;
-	padding: 0 1em;
+	font-family: 'Roboto', Arial, sans-serif;
 	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.8em;
+	letter-spacing: 3px;
+	line-height: 1em;
+	color: #f69;
 }
 
 .map-container {
 	height: 350px;
 	background: #ccc;
+	border-bottom: 1px solid #fff;
 }
 
 .category-filter {
 	background: #999;
+	border-bottom: 2px solid #ccc;
 	padding: 20px;
 }
 
@@ -83,9 +96,22 @@ ul {
 
 .place-name {
 	font-size: 1em;
-	padding: 0.3em 0;
 }
 
 .place-category {
 	font-size: 0.85em;
+}
+
+.info-window {
+	width: 100%;
+}
+
+.place-image {
+	padding: 15px;
+	width: 100%;
+}
+
+.place-text {
+	padding: 0 15px 15px;
+	font-size: 0.9em;
 }

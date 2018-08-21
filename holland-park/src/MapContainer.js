@@ -1,29 +1,11 @@
 import React from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class MapContainer extends React.Component {
-	state = {
-		showingInfoWindow: false,
-		activeMarker: {},
-		selectedPlace: {}
-	}
-
-	/*componentWillReceiveProps() {
-		this.setState({
-	      	showingInfoWindow: false
-	    });
-	}*/
 
 	onMarkerClick = (props, marker, event) => {
-		event.target = props.name;
+		event.target = props.id;
 	    this.props.showInfoOnMap(event.target);
-
-		/*this.setState({
-	      	selectedPlace: props,
-	      	activeMarker: marker,
-	      	showingInfoWindow: true
-	    });*/
-	    //console.log('test: ' + event.target);
 	}
 
 	render() {
@@ -33,7 +15,6 @@ class MapContainer extends React.Component {
 		}
 
 		const { items, activeItem, google } = this.props
-		const { activeMarker, showingInfoWindow, selectedPlace } = this.state
 
 	    return (
 	    	<div className="map-container">
@@ -46,31 +27,20 @@ class MapContainer extends React.Component {
 		    			{items.map(item => (
 		    				<Marker key={item.id}
 		    						onClick={this.onMarkerClick}
+		    						id={item.id}
 		    						name={item.name}
 		    						category={item.categories[0].name}
-		    						//Animation={google.maps.Animation.DROP}
 		    						position={{lat: item.location.lat, lng: item.location.lng}}
 		    						icon={'http://maps.google.com/mapfiles/ms/micons/blue-dot.png'}
 		    				/>
 		    			))}
 
-		    			{activeItem.map(item => (
-		    				<Marker key={item.id}
-		    						//onClick={this.onActiveMarkerClick}
-		    						name={item.name}
-		    						category={item.categories[0].name}
-		    						position={{lat: item.location.lat, lng: item.location.lng}}
-		    						icon={'http://maps.google.com/mapfiles/ms/micons/pink-dot.png'}
-		    				/>
-		    			))}
-
-		    			<InfoWindow marker={activeMarker}
-				     		        visible={showingInfoWindow}>
-				     		<div>
-				     			<h4>{selectedPlace.name}</h4>
-				     			<p>{selectedPlace.category}</p>
-				     		</div>
-				    	</InfoWindow>
+		    			<Marker key={activeItem.id}
+	    						onClick={this.onMarkerClick}
+	    						id={activeItem.id}
+	    						position={activeItem.location ? {lat: activeItem.location.lat, lng: activeItem.location.lng} : {}}
+	    						icon={'http://maps.google.com/mapfiles/ms/micons/pink-dot.png'}
+		    			/>
 					</Map>
 	 			</div>
 	 		</div>

@@ -25,7 +25,7 @@ class MapFilterFS extends React.Component {
 		const food = "4bf58dd8d48988d1c4941735,4bf58dd8d48988d16d941735";
 
 	  	const { category } = this.state
-	  	const { items, showInfoOnMap } = this.props
+	  	const { items, activeItem, showInfoOnMap } = this.props
 
 	    return (
 	    	<div>
@@ -48,12 +48,12 @@ class MapFilterFS extends React.Component {
 
 				<div className="places-list">
 		    		<ul>
-						{items.map(item => (<PlaceFS item={item} key={item.id} showInfoOnMap={showInfoOnMap}/>))}
+						{items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={showInfoOnMap}/>))}
 		        	</ul>
 	        	</div>
 	    	</div>
 	    );
-	 }
+	}
 }
 
 export default MapFilterFS;
