@@ -85,13 +85,15 @@ class App extends Component {
 	        		<h1 className="app-name">Holland Park</h1>
 	        	</header>
 
-        		<section>
-	      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
-	      	    </section>
+	        	<div className="flex-container">
+	        		<section>
+		      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
+		      	    </section>
 
-		        <main>
-					<MapFilterFS items={items} activeItem={activeItem} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>
-		        </main>
+			        <main>
+						<MapFilterFS items={items} activeItem={activeItem} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>
+			        </main>
+		        </div>
 
 		        <footer>
 		        	<p>All Rights Reserved.</p>

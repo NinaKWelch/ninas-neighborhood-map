@@ -10,10 +10,6 @@ class MapContainer extends React.Component {
 
 	render() {
 
-		const style = {
-  			height: 350
-		}
-
 		const { items, activeItem, google } = this.props
 
 	    return (
@@ -21,7 +17,6 @@ class MapContainer extends React.Component {
 	    		<div id="map">
 					<Map google={google}
 		    		     zoom={15}
-		    		     style={style}
 		    		     initialCenter={{lat: 51.501757,lng: -0.203186}}>
 
 		    			{items.map(item => (
