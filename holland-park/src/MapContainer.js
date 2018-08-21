@@ -18,8 +18,8 @@ class MapContainer extends React.Component {
 	    	<div className="map-container">
 	    		<div id="map" role="application">
 					<Map google={google}
-		    		     zoom={15}
-		    		     initialCenter={{lat: 51.501757,lng: -0.203186}}>
+		    		     zoom={16}
+		    		     initialCenter={{lat: 51.501,lng: -0.203}}>
 
 		    			{items.map(item => (
 		    				<Marker key={item.id}

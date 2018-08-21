@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import MapContainer from './MapContainer';
 import MapFilterFS from './MapFilterFS';
 
+//FourSquare API
 const foursquare = require('react-foursquare')({
   clientID: 'LEZHUWQW2RE05TR3ZEXPYMXQIGRJLVDA4DELG0RJMZXMMQOP',
   clientSecret: 'ORHDBJZPFD2U3KQJVRJBVFMC0Z1VZ0RD1FFA2SXJ4YDOYVM5'
 });
 
+//initial categories to fetch from FourSquare API
 const allCategories = "4bf58dd8d48988d136941735,4bf58dd8d48988d1e2931735,58daa1558bbb0b01f18ec203,4e39a956bd410d7aed40cbc3,4bf58dd8d48988d1e7941735,4bf58dd8d48988d15a941735,4bf58dd8d48988d181941735,4bf58dd8d48988d1c4941735,4bf58dd8d48988d16d941735";
+
+//location coordinates for Holland Park
 const hollandPark = '51.501757,-0.203186'
 
 class App extends Component {
@@ -103,18 +107,18 @@ class App extends Component {
 	    return (
 	        <div className="App">
 	        	<header>
-	        		<h1 className="app-name">Holland Park</h1>
+	        		<h1 className="app-name"><a href="/">Holland Park</a></h1>
 	        	</header>
 
-	        	<div className="flex-container">
-	        		<section>
-		      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
-		      	    </section>
-
-			        <main>
+	        	<main className="flex-container main-content">
+			        <section>
 						<MapFilterFS items={items} activeItem={activeItem} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>
-			        </main>
-		        </div>
+			        </section>
+
+		      	    <aside>
+		      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
+		      	    </aside>
+		        </main>
 
 		        <footer>
 		        	<p>All Rights Reserved.</p>

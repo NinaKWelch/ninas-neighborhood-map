@@ -31,16 +31,15 @@ class MapFilterFS extends React.Component {
 	    return (
 	    	<div>
 	    		<div className="category-filter">
-	    		 <label htmlFor="venues-select">Check out fun things to do!</label>
-		    		<select
-		    		  id="venues-select"
-		    		  name="venues"
-		    		  className="category-selection"
-		    		  value={category}
-		    		  onChange={(event) => (
-		    		  	this.changeCategory(event.target.value)
-		    		  )}
-		    		>
+	    		 	<label htmlFor="venues-select">Check out fun things to do!</label>
+		    			<select id="venues-select"
+				    		    name="venues"
+				    		    className="category-selection"
+				    		    value={category}
+				    		    onChange={(event) => (
+				    		  		this.changeCategory(event.target.value)
+				    		    )}
+				    	>
 		    			<option value={all}>All</option>
 		    			<option value={art}>Arts & Music</option>
 		    			<option value={food}>Cafes & Restaurants</option>

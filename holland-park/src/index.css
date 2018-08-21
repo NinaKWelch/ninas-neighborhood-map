@@ -32,13 +32,17 @@ footer {
 	text-align: center;
 }
 
-section {
+aside {
 	width: 100%;
 	position: relative;
 }
 
-main {
+section {
 	width: 100%;
+}
+
+a {
+
 }
 
 ul {
@@ -64,14 +68,26 @@ ul {
 	font-size: 1.8em;
 	letter-spacing: 3px;
 	line-height: 1em;
+
+}
+
+.app-name a {
+	text-decoration: none;
 	color: rgba(255, 102, 153, 0.9); /* pink */
+}
+
+.header-image {
+	width: 100%;
 }
 
 /* Map Styles */
 .map-container {
-	height: 350px;
 	background: #ccc;
 	border-bottom: 1px solid #fff;
+}
+
+#map {
+	height: 500px;
 }
 
 /* Filter Styles */
@@ -142,19 +158,19 @@ ul {
 */
 
 @media screen and (min-width: 780px) {
-	section {
+	aside {
 		width: 60%;
+		height: 600px;
 		border-right: 1px solid #fff;
-		order: 2;
 	}
 
-	main {
+	section {
 		width: 40%;
 		border-left: 1px solid #fff;
 		border-right: 1px solid #fff;
-		order: 1;
 	}
-	.map-container {
-		min-height: 700px;
+
+	.main-content {
+		min-height: 600px;
 	}
 }
