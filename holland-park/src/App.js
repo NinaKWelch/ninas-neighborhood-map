@@ -16,16 +16,25 @@ class App extends Component {
 		activeItem: {}
 	}
 
+	//when page loads for the first time
+	//fetch places form FourSquare API
+	//that correspond to set categories
 	componentDidMount() {
 		this.updatePlaces(allCategories);
   	}
 
+  	//when list item or marker is clicked
+  	//and becomes active
+  	//remove any previuosly active items
   	componentDidUpdate(prevProps, prevState) {
     	if (prevState.items !== this.state.items) {
         	this.setState({ activeItem: {} });
     	}
 	}
 
+	//fetch places form FourSquare API
+	//that correspond to selected categories
+	//and are within Holland Park
   	updatePlaces = (category) => {
   		let params = {
     		"ll": hollandPark,
@@ -38,9 +47,12 @@ class App extends Component {
     		this.setState({ items: res.response.venues });
   		});
 
+    	//close any previously open info window
   		this.closeAllWindows();
   	}
 
+	//fetch venue information form FourSquare API
+	//by venue id (required)
  	showInfoOnMap = (queryId) => {
 		let params = {
 			"venue_id": queryId
@@ -51,19 +63,28 @@ class App extends Component {
     		this.setState({ activeItem: res.response.venue });
   		});
 
+    	//close previously open info window
 	 	this.closeAllWindows();
+	 	//open the info window of currently selected venue
   		this.showInfoWIndow(queryId);
  	}
 
+ 	//when new selection is made
+ 	//close previous info window
  	closeAllWindows = () => {
+ 		//loop through the list of venues
  		for (var i = 0; i < this.state.items.length; i++) {
  			let item = this.state.items[i];
 
+ 		//hide any open info windows (only one can be seen at any time)
 		const closeWindow = document.getElementById(item.id);
 	 		closeWindow.firstChild.setAttribute('style', 'display: none;');
 	 	}
  	}
 
+ 	//find the currently selected venue from the list
+ 	//by matching the selected venue with the listed venue
+ 	//and open the right info window
  	showInfoWIndow = (queryId) => {
  		for (var i = 0; i < this.state.items.length; i++) {
  			let item = this.state.items[i];
@@ -86,9 +107,9 @@ class App extends Component {
 	        	</header>
 
 	        	<div className="flex-container">
-	        		<aside>
+	        		<section>
 		      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
-		      	    </aside>
+		      	    </section>
 
 			        <main>
 						<MapFilterFS items={items} activeItem={activeItem} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>
