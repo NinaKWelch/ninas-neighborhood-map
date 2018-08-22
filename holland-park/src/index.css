@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /**
-*Global Styles */
+* Global Styles
+*/
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +24,7 @@ footer {
 
 header {
 	background-color: #fff;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 2px solid rgba(255, 102, 153, 0.9);
 }
 
 footer {
@@ -34,16 +35,11 @@ footer {
 
 aside {
 	width: 100%;
-	position: relative;
+	position: relative; /* for Google Maps */
 }
 
 section {
 	width: 100%;
-}
-
-button {
-	width: 100%;
-
 }
 
 ul {
@@ -171,7 +167,7 @@ ul {
 		border-right: 1px solid #fff;
 	}
 
-	.main-content {
-		min-height: 600px;
+	#map {
+		height: 678px;
 	}
 }
