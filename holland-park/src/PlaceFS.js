@@ -22,6 +22,8 @@ class PlaceFS extends React.Component {
 
 	    return (
 			<li className="places-list-item flex-container"
+				role="tab"
+				tabIndex="0"
 			    onClick={this.showInfo}>
 
 				<div className="places-list-img" style={categoryStyle}></div>

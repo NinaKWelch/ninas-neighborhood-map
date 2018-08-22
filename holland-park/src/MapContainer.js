@@ -16,7 +16,7 @@ class MapContainer extends React.Component {
 
 	    return (
 	    	<div className="map-container">
-	    		<div id="map" role="application">
+	    		<div id="map" role="application" tabIndex="0">
 					<Map google={google}
 		    		     zoom={16}
 		    		     initialCenter={{lat: 51.501,lng: -0.203}}>

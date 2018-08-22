@@ -1,5 +1,5 @@
 import React from 'react';
-import image from './Default.jpg';
+import image from './defaultImg.jpg';
 
 class ActivePlaceFS extends React.Component {
 

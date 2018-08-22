@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MapContainer from './MapContainer';
 import MapFilterFS from './MapFilterFS';
+import PlaceFS from './PlaceFS';
 
 //FourSquare API
 const foursquare = require('react-foursquare')({
@@ -25,6 +26,7 @@ class App extends Component {
 	//that correspond to set categories
 	componentDidMount() {
 		this.updatePlaces(allCategories);
+		document.title = 'Holland Park'
   	}
 
   	//when list item or marker is clicked
@@ -112,7 +114,12 @@ class App extends Component {
 
 	        	<main className="flex-container main-content">
 			        <section>
-						<MapFilterFS items={items} activeItem={activeItem} updatePlaces={this.updatePlaces} showInfoOnMap={this.showInfoOnMap}/>
+						<MapFilterFS updatePlaces={this.updatePlaces}/>
+
+						<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
+							{items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>))}
+				        </ul>
+
 			        </section>
 
 		      	    <aside>

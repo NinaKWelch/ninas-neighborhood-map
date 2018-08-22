@@ -41,7 +41,8 @@ section {
 	width: 100%;
 }
 
-a {
+button {
+	width: 100%;
 
 }
 
@@ -55,7 +56,7 @@ ul {
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 960px;
+    max-width: 1024px;
     margin: 0 auto;
     background-color: #f1f1f1;
 }
@@ -160,7 +161,7 @@ ul {
 @media screen and (min-width: 780px) {
 	aside {
 		width: 60%;
-		height: 600px;
+		height: 678px;
 		border-right: 1px solid #fff;
 	}
 
