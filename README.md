@@ -3,7 +3,26 @@ Udacity Front-End Web Development Nanodegree Project 8 - Neighborhood Map
 
 ## Website
 
-[https://ninakwelch.github.io/ninas-neighborhood-map/](https://ninakwelch.github.io/ninas-neighborhood-map/)
+[https://ninakwelch.github.io/ninas-neighborhood-map/holland-park](https://ninakwelch.github.io/ninas-neighborhood-map/holland-park)
+
+## Screenshots
+
+### Mobile
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_280/v1534948818/neighborhood_map_12_jtqwpk.png)
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_280/v1534949604/neighborhood_map_13_mddgvd.png)
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_280/v1534949604/neighborhood_map_14_dov4ux.png)
+***
+
+### Tablet
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_420/v1534948818/neighborhood_map_15_sc1bmu.png)
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_420/v1534948819/neighborhood_map_16_xdogdn.png)
+***
+
+### Desktop
+***
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_420/v1534948818/neighborhood_map_17_t539f6.png)
+![](http://res.cloudinary.com/ninaw/image/upload/c_scale,w_420/v1534948820/neighborhood_map_18_acgdbw.png)
+***
 
 
 ## API Keys
