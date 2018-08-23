@@ -5,8 +5,6 @@ class ActivePlaceFS extends React.Component {
 
 	render() {
 
-		console.log(this.props.activeItem);
-
 	  	const { activeItem } = this.props
 
 	    return (

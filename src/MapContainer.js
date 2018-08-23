@@ -1,5 +1,7 @@
 import React from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import blueDot from './blueDot.png';
+import pinkDot from './pinkDot.png';
 
 class MapContainer extends React.Component {
 
@@ -28,7 +30,7 @@ class MapContainer extends React.Component {
 		    						name={item.name}
 		    						category={item.categories[0].name}
 		    						position={{lat: item.location.lat, lng: item.location.lng}}
-		    						icon={'http://maps.google.com/mapfiles/ms/micons/blue-dot.png'}
+		    						icon={blueDot}
 		    				/>
 		    			))}
 
@@ -36,7 +38,7 @@ class MapContainer extends React.Component {
 	    						onClick={this.onMarkerClick}
 	    						id={activeItem.id}
 	    						position={activeItem.location ? {lat: activeItem.location.lat, lng: activeItem.location.lng} : {}}
-	    						icon={'http://maps.google.com/mapfiles/ms/micons/pink-dot.png'}
+	    						icon={pinkDot}
 		    			/>
 					</Map>
 	 			</div>
