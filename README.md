@@ -25,17 +25,15 @@ Udacity Front-End Web Development Nanodegree Project 8 - Neighborhood Map
 ***
 
 
-## API Keys
+## Set Up
 
-# FourSquare
+1. Clone or download the repository
+2. Run `npm install` to install dependencies
+3. Navigate to the root folder and run `npm start` to view teh app on your browser
+4. Live version can be found [here](https://ninakwelch.github.io/ninas-neighborhood-map)
 
-Client ID
-LEZHUWQW2RE05TR3ZEXPYMXQIGRJLVDA4DELG0RJMZXMMQOP
+## Built with
 
-Client Secret
-ORHDBJZPFD2U3KQJVRJBVFMC0Z1VZ0RD1FFA2SXJ4YDOYVM5
-
-# Google Maps
-
-API Key
-AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4
+* [create-react-app](https://github.com/facebook/create-react-app)
+* [google-maps-react](https://github.com/fullstackreact/google-maps-react)
+* [react-foursquare](https://github.com/foursquare/react-foursquare)
