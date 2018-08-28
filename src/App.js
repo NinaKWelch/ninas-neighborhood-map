@@ -44,6 +44,7 @@ class App extends Component {
   	updatePlaces = (category) => {
   		let params = {
     		"ll": hollandPark,
+    		v: 20180829,
  			"radius": 310,
 			"categoryId": category
   		};
