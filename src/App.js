@@ -17,6 +17,8 @@ const hollandPark = '51.501757,-0.203186'
 
 class App extends Component {
 	state = {
+		error: null,
+    	isLoaded: false,
 		items: [],
 		activeItem: {}
 	}
@@ -50,9 +52,21 @@ class App extends Component {
   		};
 
     	foursquare.venues.getVenues(params)
-    	.then(res => {
-    		this.setState({ items: res.response.venues });
-  		});
+    	.then(
+    		(res) => {
+	    		this.setState({
+	    			isLoaded: true,
+	    			items: res.response.venues
+	    		});
+	    	},
+	    	// Handle loading errors
+		    (error) => {
+		        this.setState({
+		          	isLoaded: true,
+		          	error
+		        });
+		    }
+  		);
 
     	//close any previously open info window
   		this.closeAllWindows();
@@ -66,9 +80,21 @@ class App extends Component {
 		};
 
     	foursquare.venues.getVenue(params)
-    	.then(res => {
-    		this.setState({ activeItem: res.response.venue });
-  		});
+    	.then(
+    		(res) => {
+    			this.setState({
+    				isLoaded: true,
+    				activeItem: res.response.venue
+    			});
+    		},
+		    // Handle loading errors
+			    (error) => {
+			        this.setState({
+			          	isLoaded: true,
+			          	error
+		        });
+		    }
+  		);
 
     	//close previously open info window
 	 	this.closeAllWindows();
@@ -105,34 +131,40 @@ class App extends Component {
 
 	render() {
 
-	  	const { items, activeItem } = this.state
+	  	const { error, isLoaded, items, activeItem } = this.state
 
-	    return (
-	        <div className="App">
-	        	<header>
-	        		<h1 className="app-name"><a href="/">Holland Park</a></h1>
-	        	</header>
+	    if (error) {
+	      	return <div className="error-message">Error: Page failed to load</div>
+	    } else if (!isLoaded) {
+	      	return <div className="loading-message">Loading...</div>
+	    } else {
+	      	return (
+		        <div className="App">
+		        	<header>
+		        		<h1 className="app-name"><a href="/">Holland Park</a></h1>
+		        	</header>
 
-	        	<main className="flex-container main-content">
-			        <section>
-						<MapFilterFS updatePlaces={this.updatePlaces}/>
+		        	<main className="flex-container main-content">
+				        <section>
+							<MapFilterFS updatePlaces={this.updatePlaces}/>
 
-						<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
-							{items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>))}
-				        </ul>
+							<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
+								{items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>))}
+					        </ul>
 
-			        </section>
+				        </section>
 
-		      	    <aside>
-		      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
-		      	    </aside>
-		        </main>
+			      	    <aside>
+			      		    <MapContainer items={items} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>
+			      	    </aside>
+			        </main>
 
-		        <footer>
-		        	<p>All Rights Reserved.</p>
-		        </footer>
-	        </div>
-	    );
+			        <footer>
+			        	<p>All Rights Reserved.</p>
+			        </footer>
+		        </div>
+	    	);
+	    }
 	}
 }
 

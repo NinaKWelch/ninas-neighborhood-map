@@ -48,6 +48,23 @@ ul {
 	list-style: none;
 }
 
+/* Error handling */
+.error-message,
+.loading-message {
+	text-align: center;
+	margin-top: 50px;
+	font-size: 1.3em;
+}
+
+.error-message {
+	color: rgba(255, 102, 153, 0.9); /* pink */
+}
+
+.loading-message {
+	color: rgba(102, 153, 204, 0.9); /* blue */
+}
+
+
 /* Flexbox Styles */
 .flex-container {
     display: flex;
