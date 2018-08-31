@@ -35,9 +35,9 @@ class App extends Component {
   	//and becomes active
   	//remove any previuosly active items
   	componentDidUpdate(prevProps, prevState) {
-    	if (prevState.items !== this.state.items) {
-        	this.setState({ activeItem: {} });
-    	}
+    	        if (prevState.items !== this.state.items) {
+			this.setState({ activeItem: {} });
+    	        }
 	}
 
 	//fetch places form FourSquare API
@@ -124,7 +124,7 @@ class App extends Component {
 
  			if (item.id === queryId) {
  				const window = document.getElementById(queryId);
- 				window.firstChild.setAttribute('style', 'display: initial; transition: display 15s ease-out')
+ 				window.firstChild.setAttribute('style', 'display: initial; transition: display 15s ease-out');
  			}
  		}
  	}
@@ -146,7 +146,7 @@ class App extends Component {
 						<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
 		                                	{
 			                                         if (error) {
-			                                                   return <div className="error-message">ERROR: Page failed to load</div>
+			                                                   return <div className="error-message">Error: FourSquare failed to load</div>
 		                                                  } else if (!isLoaded) {
 								           return <div className="loading-message">Loading...</div>
 							          } else {
