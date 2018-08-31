@@ -131,14 +131,9 @@ class App extends Component {
 
 	render() {
 
-	  	const { error, isLoaded, items, activeItem } = this.state
+	        const { error, isLoaded, items, activeItem } = this.state
 
-	    if (error) {
-	      	return <div className="error-message">Error: Page failed to load</div>
-	    } else if (!isLoaded) {
-	      	return <div className="loading-message">Loading...</div>
-	    } else {
-	      	return (
+	        return (
 		        <div className="App">
 		        	<header>
 		        		<h1 className="app-name"><a href="/">Holland Park</a></h1>
@@ -146,10 +141,20 @@ class App extends Component {
 
 		        	<main className="flex-container main-content">
 				        <section>
-							<MapFilterFS updatePlaces={this.updatePlaces}/>
+						<MapFilterFS updatePlaces={this.updatePlaces}/>
 
-							<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
-								{items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>))}
+						<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
+		                                	{
+			                                         if (error) {
+			                                                   return <div className="error-message">ERROR: Page failed to load</div>
+		                                                  } else if (!isLoaded) {
+								           return <div className="loading-message">Loading...</div>
+							          } else {
+								           return (
+									            {items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>))}
+						                           )
+							          }
+	                                                }
 					        </ul>
 
 				        </section>
@@ -164,8 +169,7 @@ class App extends Component {
 			        </footer>
 		        </div>
 	    	);
-	    }
-	}
+        }
 }
 
 export default App;
