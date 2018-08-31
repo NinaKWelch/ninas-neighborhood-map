@@ -50,18 +50,24 @@ ul {
 
 /* Error handling */
 .error-message,
-.loading-message {
+.loading-message,
+.gm-error {
 	text-align: center;
 	margin-top: 50px;
 	font-size: 1.3em;
 }
 
-.error-message {
+.error-message,
+.gm-error {
 	color: rgba(255, 102, 153, 0.9); /* pink */
 }
 
 .loading-message {
 	color: rgba(102, 153, 204, 0.9); /* blue */
+}
+
+.gm-error {
+	display: none;
 }
 
 
