@@ -5,6 +5,10 @@ Udacity Front-End Web Development Nanodegree Project 8 - Neighborhood Map
 
 [https://ninakwelch.github.io/ninas-neighborhood-map](https://ninakwelch.github.io/ninas-neighborhood-map)
 
+NOTE: Current page is not the latest version; it does not include the latest error handling.
+To view the latest version, see the instrucions in **Set Up** section
+
+
 ## Screenshots
 
 ### Mobile
@@ -30,7 +34,12 @@ Udacity Front-End Web Development Nanodegree Project 8 - Neighborhood Map
 1. Clone or download the repository
 2. Run `npm install` to install dependencies
 3. Navigate to the root folder and run `npm start` to view the app on your browser
-4. Live version can be found [here](https://ninakwelch.github.io/ninas-neighborhood-map)
+4. For production version, run `npm run build`
+
+
+## Service Worker
+
+The servce worker is included in the production build
 
 ## Built with
 
