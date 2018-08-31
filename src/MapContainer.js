@@ -4,6 +4,12 @@ import blueDot from './blueDot.png';
 import pinkDot from './pinkDot.png';
 
 class MapContainer extends React.Component {
+	
+	// Error handling for Google Maps
+	window.gm_authFailure = () => {
+		const gmErrorMessage = document.getElementById('map');
+		gmErrorMessage.firstChild.setAttribute('style', 'display: initial;');
+	}
 
 	//when marker is clicked
 	//use it's id to fetch venue information
@@ -19,6 +25,7 @@ class MapContainer extends React.Component {
 	    return (
 	    	<div className="map-container">
 	    		<div id="map" role="application" tabIndex="0">
+		                <p className="gm-error">Error: Google Maps failed to load</p>
 					<Map google={google}
 		    		     zoom={16}
 		    		     initialCenter={{lat: 51.501,lng: -0.203}}>
