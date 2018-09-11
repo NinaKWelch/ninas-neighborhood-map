@@ -3,10 +3,15 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import blueDot from './blueDot.png';
 import pinkDot from './pinkDot.png';
 
-var loadingError = false;
-
 class MapContainer extends React.Component {
 
+	componentDidMount() {
+		//Error handling for Google Maps
+		window.gm_authFailure = () => {
+			const gmErrorMessage = document.getElementById('map');
+			gmErrorMessage.firstChild.setAttribute('style', 'display: initial;');
+		}
+	}
 
 	//when marker is clicked
 	//use it's id to fetch venue information
@@ -16,11 +21,6 @@ class MapContainer extends React.Component {
 	}
 
 	render() {
-
-		if (loadingError) {
-			const gmErrorMessage = document.getElementById('map');
-		    gmErrorMessage.firstChild.setAttribute('style', 'display: initial;');
-		}
 
 		const { items, activeItem, google } = this.props
 
@@ -56,10 +56,6 @@ class MapContainer extends React.Component {
 	 		</div>
 	    );
 	}
-}
-
-window.gm_authFailure = () => {
-	loadingError = true;
 }
 
 export default GoogleApiWrapper({
