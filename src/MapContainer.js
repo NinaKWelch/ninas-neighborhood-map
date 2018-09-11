@@ -7,9 +7,6 @@ var loadingError = false;
 
 class MapContainer extends React.Component {
 
-	gm_authFailure = () => {
-		loadingError = true;
-	}
 
 	//when marker is clicked
 	//use it's id to fetch venue information
@@ -59,6 +56,10 @@ class MapContainer extends React.Component {
 	 		</div>
 	    );
 	}
+}
+
+window.gm_authFailure = () => {
+	loadingError = true;
 }
 
 export default GoogleApiWrapper({
