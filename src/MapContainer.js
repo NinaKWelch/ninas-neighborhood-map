@@ -3,12 +3,12 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import blueDot from './blueDot.png';
 import pinkDot from './pinkDot.png';
 
+var loadingError = false;
+
 class MapContainer extends React.Component {
-	
-	// Error handling for Google Maps
-	window.gm_authFailure = () => {
-		const gmErrorMessage = document.getElementById('map');
-		gmErrorMessage.firstChild.setAttribute('style', 'display: initial;');
+
+	gm_authFailure = () => {
+		loadingError = true;
 	}
 
 	//when marker is clicked
@@ -20,12 +20,19 @@ class MapContainer extends React.Component {
 
 	render() {
 
+		if (loadingError) {
+			const gmErrorMessage = document.getElementById('map');
+		    gmErrorMessage.firstChild.setAttribute('style', 'display: initial;');
+		}
+
 		const { items, activeItem, google } = this.props
 
 	    return (
 	    	<div className="map-container">
 	    		<div id="map" role="application" tabIndex="0">
-		                <p className="gm-error">Error: Google Maps failed to load</p>
+
+		            <div id="error-gm"><p>Google Maps failed to load : (</p></div>
+
 					<Map google={google}
 		    		     zoom={16}
 		    		     initialCenter={{lat: 51.501,lng: -0.203}}>
@@ -55,5 +62,6 @@ class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4')
+  	apiKey: ('AIzaSyBEebNuPToeZlDMcVVggVAxAwc3NTnNB_4')
 })(MapContainer);
+

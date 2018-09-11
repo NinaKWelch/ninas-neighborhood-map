@@ -17,8 +17,6 @@ const hollandPark = '51.501757,-0.203186'
 
 class App extends Component {
 	state = {
-		error: null,
-    	isLoaded: false,
 		items: [],
 		activeItem: {}
 	}
@@ -52,21 +50,14 @@ class App extends Component {
   		};
 
     	foursquare.venues.getVenues(params)
-    	.then(
-    		(res) => {
-	    		this.setState({
-	    			isLoaded: true,
-	    			items: res.response.venues
-	    		});
-	    	},
-	    	// Handle loading errors
-		    (error) => {
-		        this.setState({
-		          	isLoaded: true,
-		          	error
-		        });
-		    }
-  		);
+    	.then(res => {
+    		this.setState({ items: res.response.venues });
+    		document.getElementById('error-fs').setAttribute('style', 'display: none;');
+    	}).catch(err => {
+    		// Handle loading errors
+    		console.log(err);
+    		document.getElementById('error-fs').setAttribute('style', 'display: initial;');
+    	});
 
     	//close any previously open info window
   		this.closeAllWindows();
@@ -80,21 +71,14 @@ class App extends Component {
 		};
 
     	foursquare.venues.getVenue(params)
-    	.then(
-    		(res) => {
-    			this.setState({
-    				isLoaded: true,
-    				activeItem: res.response.venue
-    			});
-    		},
-		    // Handle loading errors
-			    (error) => {
-			        this.setState({
-			          	isLoaded: true,
-			          	error
-		        });
-		    }
-  		);
+    	.then(res => {
+    		this.setState({ activeItem: res.response.venue });
+    		document.getElementById('error-fs').setAttribute('style', 'display: none;');
+    	}).catch(err => {
+    		// Handle loading errors
+    		console.log(err);
+    		document.getElementById('error-fs').setAttribute('style', 'display: initial;');
+    	});
 
     	//close previously open info window
 	 	this.closeAllWindows();
@@ -131,7 +115,7 @@ class App extends Component {
 
 	render() {
 
-	        const { error, isLoaded, items, activeItem } = this.state
+	        const { items, activeItem } = this.state
 
 	        return (
 		        <div className="App">
@@ -141,22 +125,13 @@ class App extends Component {
 
 		        	<main className="flex-container main-content">
 				        <section>
-						<MapFilterFS updatePlaces={this.updatePlaces}/>
+							<MapFilterFS updatePlaces={this.updatePlaces}/>
 
-						<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
-		                                	{
-			                                         if (error) {
-			                                                   return <div className="error-message">Error: FourSquare failed to load</div>
-		                                                  } else if (!isLoaded) {
-								           return <div className="loading-message">Loading...</div>
-							          } else {
-								           return (
-									            {items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>))}
-						                           )
-							          }
-	                                                }
-					        </ul>
+							<div id="error-fs"><p>Venues failed to load : (</p></div>
 
+							<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
+								{items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>))}
+		                    </ul>
 				        </section>
 
 			      	    <aside>

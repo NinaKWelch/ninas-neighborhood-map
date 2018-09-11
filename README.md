@@ -5,10 +5,6 @@ Udacity Front-End Web Development Nanodegree Project 8 - Neighborhood Map
 
 [https://ninakwelch.github.io/ninas-neighborhood-map](https://ninakwelch.github.io/ninas-neighborhood-map)
 
-NOTE: Current page is not the latest version; it does not include the latest error handling.
-To view the latest version, see the instrucions in **Set Up** section
-
-
 ## Screenshots
 
 ### Mobile
