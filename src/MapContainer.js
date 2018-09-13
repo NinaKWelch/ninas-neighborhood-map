@@ -34,7 +34,7 @@ class MapContainer extends React.Component {
 		    		     zoom={16}
 		    		     initialCenter={{lat: 51.501,lng: -0.203}}>
 
-		    			{items.map(item => (
+		    			{items !== undefined ? items.map(item => (
 		    				<Marker key={item.id}
 		    						onClick={this.onMarkerClick}
 		    						id={item.id}
@@ -43,7 +43,7 @@ class MapContainer extends React.Component {
 		    						position={{lat: item.location.lat, lng: item.location.lng}}
 		    						icon={blueDot}
 		    				/>
-		    			))}
+		    			)) : ""}
 
 		    			<Marker key={activeItem.id}
 	    						onClick={this.onMarkerClick}

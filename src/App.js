@@ -55,7 +55,6 @@ class App extends Component {
     		document.getElementById('error-fs').setAttribute('style', 'display: none;');
     	}).catch(err => {
     		// Handle loading errors
-    		console.log(err);
     		document.getElementById('error-fs').setAttribute('style', 'display: initial;');
     	});
 
@@ -76,7 +75,6 @@ class App extends Component {
     		document.getElementById('error-fs').setAttribute('style', 'display: none;');
     	}).catch(err => {
     		// Handle loading errors
-    		console.log(err);
     		document.getElementById('error-fs').setAttribute('style', 'display: initial;');
     	});
 
@@ -127,10 +125,10 @@ class App extends Component {
 				        <section>
 							<MapFilterFS updatePlaces={this.updatePlaces}/>
 
-							<div id="error-fs"><p>Venues failed to load : (</p></div>
+							<div id="error-fs"><p>Venues failed to update : (</p></div>
 
 							<ul className="places-list" role="tablist" aria-label="Holland Park Venues">
-								{items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>))}
+								{items !== undefined ? items.map(item => (<PlaceFS item={item} key={item.id} activeItem={activeItem} showInfoOnMap={this.showInfoOnMap}/>)) : "Venues failed to load : ("}
 		                    </ul>
 				        </section>
 
