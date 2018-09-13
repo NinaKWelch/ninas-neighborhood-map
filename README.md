@@ -30,7 +30,12 @@ Udacity Front-End Web Development Nanodegree Project 8 - Neighborhood Map
 1. Clone or download the repository
 2. Run `npm install` to install dependencies
 3. Navigate to the root folder and run `npm start` to view the app on your browser
-4. For production build, run `npm run build`
+
+## Production Build
+
+1. Navigate to the root folder and run `npm run build`
+2. Run `serve -s build`
+3. Open _localhost:5000_ on your browser
 
 
 ## Service Worker
