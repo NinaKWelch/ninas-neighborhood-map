@@ -51,13 +51,16 @@ ul {
 /* Error handling */
 #error-fs,
 #error-gm {
-	display: none;
 	text-align: center;
-	margin: 30px;
 	font-size: 1.3em;
 	color: rgba(255, 102, 153, 0.9); /* pink */
 }
 
+#error-fs p,
+#error-gm p {
+	margin: 30px;
+}
+  
 /* Flexbox Styles */
 .flex-container {
     display: flex;
@@ -164,20 +167,30 @@ ul {
 * Larger Screens
 */
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 800px) {
 	aside {
-		width: 60%;
+		width: 50%;
 		height: 678px;
 		border-right: 1px solid #fff;
 	}
 
 	section {
-		width: 40%;
+		width: 50%;
 		border-left: 1px solid #fff;
 		border-right: 1px solid #fff;
 	}
 
 	#map {
 		height: 678px;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	aside {
+		width: 60%;
+	}
+
+	section {
+		width: 40%;
 	}
 }
