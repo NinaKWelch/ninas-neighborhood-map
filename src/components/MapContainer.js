@@ -9,7 +9,7 @@ class MapContainer extends Component {
     // error handling for Google Maps
     window.gm_authFailure = () => {
       const { notifyError } = this.props
-      notifyError('Google Maps failed to load :(')
+      notifyError('Google Maps failed to load :(', 'error-gm')
     }
   }
 

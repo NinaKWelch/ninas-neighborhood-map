@@ -38,10 +38,10 @@ class App extends Component {
   }
 
   // Notify errors
-  notifyError = message => {
+  notifyError = (message, element) => {
     const errorNotification = document.createElement('p')
     errorNotification.append(message)
-    document.getElementById('error-fs').append(errorNotification)
+    document.getElementById(element).append(errorNotification)
   }
 
   // fetch places form FourSquare API
@@ -62,7 +62,7 @@ class App extends Component {
       })
       .catch(() => {
         // Handle loading errors
-        this.notifyError('Venues failed to update :(')
+        this.notifyError('Venues failed to update :(', 'error-fs')
       })
 
     // close any previously open info window
@@ -83,7 +83,7 @@ class App extends Component {
       })
       .catch(() => {
         // Handle loading errors
-        this.notifyError('Venue not found :(')
+        this.notifyError('Venue not found :(', 'error-fs')
       })
 
     // close previously open info window
