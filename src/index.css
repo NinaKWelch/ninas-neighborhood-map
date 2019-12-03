@@ -21,7 +21,7 @@ footer {
 
 header {
 	background-color: #fff;
-	border-bottom: 2px solid rgba(255, 102, 153, 0.9);
+	border-bottom: 2px solid #ff6699;
 }
 
 footer {
@@ -50,7 +50,7 @@ ul {
 #error-gm {
 	text-align: center;
 	font-size: 1.3em;
-	color: rgba(255, 102, 153, 0.9); /* pink */
+	color: #ff6699; /* pink */
 }
 
 #error-fs p,
@@ -80,7 +80,7 @@ ul {
 
 .app-name a {
 	text-decoration: none;
-	color: rgba(255, 102, 153, 0.9); /* pink */
+	color: #ff6699; /* pink */
 }
 
 .header-image {
@@ -99,12 +99,12 @@ ul {
 
 /* Filter Styles */
 .category-filter {
-	background: rgba(102, 153, 204, 0.9);
+	background: #69c;
 	border-bottom: 2px solid #ccc;
 	padding: 0 20px 20px;
 	text-align: center;
-	font-size: 1.1em;
-	line-height: 2em;
+	font-size: 1.25em;
+	line-height: 2.5em;
 	color: #fff;
 }
 
