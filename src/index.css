@@ -132,6 +132,7 @@ ul {
 }
 
 .places-list-info {
+	max-width: 200px;
 	margin-left: 1em;
 }
 
@@ -158,6 +159,23 @@ ul {
 .place-text {
 	padding: 0 15px 15px;
 	font-size: 0.9em;
+}
+
+/**
+* Mobile Screens
+*/
+
+
+@media screen and (min-width: 360px) {
+	.places-list-info {
+		max-width: 250px;
+	}
+}
+
+@media screen and (min-width: 410px) {
+	.places-list-info {
+		max-width: 300px;
+	}
 }
 
 /**
