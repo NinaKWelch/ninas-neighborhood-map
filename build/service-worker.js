@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ninas-neighborhood-map/precache-manifest.361610dc1fdcdd142cf219ab6841f1b6.js"
+  "/ninas-neighborhood-map/precache-manifest.4fa834eea28538fc3df8a07160aa9080.js"
 );
 
 self.addEventListener('message', (event) => {
