@@ -35,7 +35,7 @@ class PlaceFS extends Component {
         <div className="places-list-img" style={categoryStyle} />
 
         <div className="places-list-info">
-          <h3 className="place-name">{item.name}</h3>
+          <h2 className="place-name">{item.name}</h2>
           <p className="place-category">{item.categories[0].name}</p>
         </div>
 
